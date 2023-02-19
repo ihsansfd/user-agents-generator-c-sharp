@@ -8,6 +8,12 @@ With this library, you can generate random user agents that have been curated fr
 
 ## Quick Start
 
+Add the library to your project:
+```
+dotnet add package UserAgentsGenerator
+```
+
+
 Below is a simple example on how to generate a single random user agent.
 
 ```csharp
@@ -28,9 +34,9 @@ To generate many, unique, randomized user agents:
 using Opapps.Lib.UserAgentsGenerator.Services;
 
 ...
-
+var userAgentsGenerator = new UAGenerator();
 int howMany = 5;
-List<string> res = await _userAgentsGenerator.GenerateManyAsync(howMany);
+List<string> res = await userAgentsGenerator.GenerateManyAsync(howMany);
 Console.WriteLine(res.Count) // 5
 
 ```
@@ -38,3 +44,6 @@ Console.WriteLine(res.Count) // 5
 ## Attributions
 
 The list of user agents was taken from this repository: https://gist.github.com/CryptoCloud9/9eec69c26e2999773c6f55cff8a4631d
+
+## License
+MIT
