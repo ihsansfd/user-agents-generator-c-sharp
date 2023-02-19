@@ -25,9 +25,11 @@ namespace Opapps.Lib.UserAgentsGenerator.Tests.Services
         [Fact]
         public async Task GenerateManyAsync_WhenCalled_ReturnUniqueRandomizedUserAgents()
         {
-            List<string> res = await _userAgentsGenerator.GenerateManyAsync(5);
+            int howMany = 5;
+            List<string> res = await _userAgentsGenerator.GenerateManyAsync(howMany);
             Assert.NotNull(res);
             Assert.True(res.Distinct().Count() == res.Count());
+            Assert.True(howMany == res.Count);
         }
 
     }

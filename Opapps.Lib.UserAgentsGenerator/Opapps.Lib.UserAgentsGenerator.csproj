@@ -4,7 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PackageId>UserAgentsGenerator</PackageId>
+	<Authors>Opapps</Authors>
+	<Description>A simple API for generating random user agents in C#.</Description>
+	<PackageTags>user_agents, UA, API</PackageTags>
+	<PackageProjectUrl>https://github.com/ihsansfd/user-agents-generator-c-sharp</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/ihsansfd/user-agents-generator-c-sharp</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MedallionRandom" Version="1.1.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="Uploads\user_agents_list.txt">
