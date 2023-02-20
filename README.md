@@ -18,13 +18,15 @@ Below is a simple example on how to generate a single random user agent.
 
 ```csharp
 using Opapps.Lib.UserAgentsGenerator.Services;
+using Opapps.Lib.UserAgentsGenerator.Entities;
 
 ...
 
 var userAgentsGenerator = new UAGenerator();
 
-string res = await userAgentsGenerator.GenerateAsync();
-Console.WriteLine(res) // Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
+UserAgent userAgent = await userAgentsGenerator.GenerateAsync();
+Console.WriteLine(userAgent.Content); // Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
+Console.WriteLine(userAgent); // Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
 
 ```
 
@@ -36,8 +38,8 @@ using Opapps.Lib.UserAgentsGenerator.Services;
 ...
 var userAgentsGenerator = new UAGenerator();
 int howMany = 5;
-List<string> res = await userAgentsGenerator.GenerateManyAsync(howMany);
-Console.WriteLine(res.Count) // 5
+List<UserAgent> userAgents = await userAgentsGenerator.GenerateManyAsync(howMany);
+Console.WriteLine(userAgents.Count); // 5
 
 ```
 

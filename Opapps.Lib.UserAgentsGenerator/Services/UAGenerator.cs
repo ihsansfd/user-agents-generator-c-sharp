@@ -21,23 +21,23 @@ namespace Opapps.Lib.UserAgentsGenerator.Services
         /// Randomly generate a user agent.
         /// </summary>
         /// <returns>The randomized user agent.</returns>
-        public async Task<string> GenerateAsync()
+        public async Task<UserAgent> GenerateAsync()
         {
             List<string> userAgents = await _repository.GetAllAsync();
-            return _random.Generate(userAgents);
+            return new UserAgent(_random.Generate(userAgents));
         }
 
-        private string Generate(UserAgentsGeneratorConfig config) { throw new NotImplementedException(); }
+        private UserAgent Generate(UserAgentsGeneratorConfig config) { throw new NotImplementedException(); }
 
         /// <summary>
         /// Generate many user agents at once.
         /// </summary>
         /// <param name="num">How many user agents to be generated.</param>
         /// <returns>The unique randomized user agents.</returns>
-        public async Task<List<string>> GenerateManyAsync(int num)
+        public async Task<List<UserAgent>> GenerateManyAsync(int num)
         {
             List<string> userAgents = await _repository.GetAllAsync();
-            return _random.GenerateMany(userAgents, num);
+            return _random.GenerateMany(userAgents, num).Select(item => new UserAgent(item)).ToList();
         }
     }
 }
